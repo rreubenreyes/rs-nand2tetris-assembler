@@ -36,8 +36,8 @@ impl State {
         }
     }
 
-    pub fn get_value(&self) -> String {
-        self.value
+    pub fn get_value(&self) -> &String {
+        &self.value
     }
 }
 
@@ -57,17 +57,18 @@ impl fmt::Debug for State {
 }
 
 pub struct StateMachine {
-    initial: State,
-    // current: State,
+    current: State,
     states: HashMap<String, State>
 }
 
 impl StateMachine {
     pub fn new(initial: State) -> StateMachine {
         StateMachine {
-            initial,
-            // current: initial,
+            current: initial,
             states: HashMap::new()
         }
     }
+
+    pub fn add_transition_listener(&self) {}
+    pub fn transition_to(&self, state: State) {}
 }

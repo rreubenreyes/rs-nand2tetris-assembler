@@ -4,6 +4,10 @@ use std::io::{BufReader, BufRead};
 
 use crate::state::State;
 
+pub struct Parser {
+    file: File,
+}
+
 pub fn parse(target_file: &String) {
     println!("{} from the parser", target_file);
 
@@ -34,4 +38,5 @@ pub fn parse(target_file: &String) {
     let state = State::new("test state");
 
     println!("State: {}", state);
+    println!("State value: {}", state.get_value());
 }
